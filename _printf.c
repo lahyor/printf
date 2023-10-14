@@ -12,6 +12,7 @@ int (*characters(const char *format))(va_list)
 	p_code find_t[] = {
 		{ "c", _printf_char },
 		{ "s", _printf_string },
+		{ "b", _printf_binary },
 		{ NULL, NULL }
 	};
 	while (find_t[x].identifier)
