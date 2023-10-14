@@ -1,11 +1,11 @@
 #include "main.h"
-
+#include <unistd.h>
 #define BUFFER_SIZE 1024
 
 /**
  * _putchars - writes the character to standard output
  * @sp: character to be printed
- * Return: Nothing.
+ * Return: on success 1, on error -1.
  */
 
 int _putchars(char sp)
@@ -23,6 +23,7 @@ int _putchars(char sp)
 		buffer[buffer_code] = sp;
 		buffer_code++;
 	}
+	return (1);
 }
 
 /**
