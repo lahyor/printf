@@ -8,24 +8,24 @@
 
 int _printf_pointer(va_list args)
 {
-	void *l;
-	char *w = "(nil)";
-	long int x;
-	int i, j;
+	void *prt = va_arg(args, void*);
+	char *stg = "(nil)";
+	long int fox;
+	int b;
+	int i;
 
-	l = va_arg(args, void*);
-	if (l == NULL)
+	if (prt == NULL)
 	{
-		for (j = 0; w[j] != '\0'; j++)
+		for (i = 0; stg[i] != '\0'; i++)
 		{
-			_putchars(w[j]);
+			_putchars(stg[i]);
 		}
-		return (j);
+		return (i);
 	}
 
-	x = (unsigned long int)l;
+	fox = (unsigned long int)prt;
 	_putchars('0');
 	_putchars('x');
-	i = _printf_hex_aux(x);
-	return (i + 2);
+	b = _printf_hex_aux(fox);
+	return (b + 2);
 }
