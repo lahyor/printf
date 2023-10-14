@@ -8,7 +8,6 @@
 #include <stdarg.h>
 
 int _putchars(char sp);
-int _put(char *str);
 int _printf(const char *format, ...);
 int _printf_char(va_list args);
 int _printf_string(va_list args);
