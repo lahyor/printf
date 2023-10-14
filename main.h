@@ -8,12 +8,11 @@
 #include <stdarg.h>
 
 int _putchars(char sp);
-int seun_printf(const char *format, ...);
-int seun_printf_char(va_list args);
-int seun_printf_string(va_list args);
-int seun_strlen(char *p);
-int seun_printf_percent(void);
-int seun_strlenc(const char *p);
+int _printf(const char *format, ...);
+int _printf_char(va_list args);
+int _printf_string(va_list args);
+int _printf_percent(void);
+int _printf_reverse(va_list args);
 
 /**
  * struct form_types - struct format types
@@ -22,7 +21,7 @@ int seun_strlenc(const char *p);
  */
 typedef struct form_types
 {
-	char *is;
+	char *identifier;
 	int (*p)(va_list args);
 } p_code;
 

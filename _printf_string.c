@@ -2,12 +2,12 @@
 
 
 /**
- * seun_printf_string - prints a character of string type
+ * _printf_string - prints a character of string type
  * @args: argument
  * Return: 0
  */
 
-int seun_printf_string(va_list args)
+int _printf_string(va_list args)
 {
 	char *my_name_string;
 	int c = 0;

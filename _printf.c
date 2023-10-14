@@ -10,13 +10,13 @@ int (*characters(const char *format))(va_list)
 {
 	unsigned int x = 0;
 	p_code find_t[] = {
-		{ "c", seun_printf_char },
-		{ "s", seun_printf_string },
+		{ "c", _printf_char },
+		{ "s", _printf_string },
 		{ NULL, NULL }
 	};
-	while (find_t[x].is)
+	while (find_t[x].identifier)
 	{
-		if (find_t[x].is[0] == (*format))
+		if (find_t[x].identifier[0] == (*format))
 			return (find_t[x].p);
 		x++;
 	}
@@ -24,12 +24,12 @@ int (*characters(const char *format))(va_list)
 }
 
 /**
- * seun_printf - produces output according to format
+ * _printf - produces output according to format
  * @format: the format
  * Return: output text
  */
 
-int seun_printf(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	va_list args;
 	int (*p)(va_list);

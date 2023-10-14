@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * seun_printf_char - prints a character of char type
+ * _printf_char - prints a character of char type
  * @args: argument
  * Return: 1
  */
 
-int seun_printf_char(va_list args)
+int _printf_char(va_list args)
 {
 	unsigned char my_sign;
 
