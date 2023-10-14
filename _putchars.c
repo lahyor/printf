@@ -37,6 +37,6 @@ int _printf_buffer(char *str)
 	register int buffer_code;
 
 	for (buffer_code = 0; str[buffer_code] != '\0'; buffer_code++)
-		_putchar(str[buffer_code]);
+		_putchars(str[buffer_code]);
 	return (buffer_code);
 }
