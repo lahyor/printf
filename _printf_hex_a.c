@@ -2,20 +2,20 @@
 
 /**
  * _printf_hex_aux - prints hexadecimal number
- * @fox: arguments
+ * @lens: arguments
  * Return: counter
  */
 
-int _printf_hex_aux(unsigned long int fox)
+int _printf_hex_aux(unsigned long int lens)
 {
 	long int s;
 	long int *arr;
 	long int count = 0;
-	unsigned long int temp = fox;
+	unsigned long int temp = lens;
 
-	while (fox / 16 != 0)
+	while (lens / 16 != 0)
 	{
-		fox /= 16;
+		lens /= 16;
 		count++;
 	}
 	count++;

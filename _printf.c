@@ -14,6 +14,7 @@ int (*characters(const char *format))(va_list)
 		{ "s", _printf_string },
 		{ "b", _printf_binary },
 		{ "p", _printf_pointer },
+		{ "p_s", _printf_hex_aux },
 		{ NULL, NULL }
 	};
 	while (find_t[x].identifier)
