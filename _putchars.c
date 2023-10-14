@@ -1,61 +1,42 @@
 #include "main.h"
 #include <unistd.h>
-#define BUFFER_SIZE 1024
 
 /**
- * _putchars - writes the character to standard output
- * @sp: character to be printed
- * Return: on success 1, on error -1.
+ * _putchars - writes the character c to stdout
+ * @sp: The character to print
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ * Description: _putchar uses a local buffer of 1024 to call write
+ * as little as possible
  */
-
 int _putchars(char sp)
 {
-	static char buffer[BUFFER_SIZE];
-	static int buffer_code;
+	static char buffer[1024];
+	static int i;
 
-	if (sp != 1)
+	if (sp == -1 || i >= 1024)
 	{
-		if (buffer_code < BUFFER_SIZE)
-		{
-			buffer[buffer_code] = sp;
-			(buffer_code++);
-		}
-		else
-		{
-			if (write(1, buffer, buffer_code) == -1)
-			{
-				buffer_code = 0;
-				return (-1);
-			}
-			buffer_code = 0;
-		}
+		write(1, &buffer, i);
+		i = 0;
 	}
-	else
+	if (sp != -1)
 	{
-		if (buffer_code > 0)
-		{
-			if (write(1, buffer, buffer_code) == -1)
-			{
-				buffer_code = 0;
-				return (-1);
-			}
-			buffer_code = 0;
-		}
+		buffer[i] = sp;
+		i++;
 	}
 	return (1);
 }
 
 /**
- * _printf_buffer - writes remaining characters in the buffer
+ * _put - prints a string to stdout
  * @str: pointer to the string to print
- * Return: Nothing.
+ * Return: number of chars written
  */
-
-int _printf_buffer(char *str)
+int _put(char *str)
 {
-	register int buffer_code;
+	register int i;
 
-	for (buffer_code = 0; str[buffer_code] != '\0'; buffer_code++)
-		_putchars(str[buffer_code]);
-	return (buffer_code);
+	for (i = 0; str[i] != '\0'; i++)
+		_putchars(str[i]);
+	return (i);
 }
