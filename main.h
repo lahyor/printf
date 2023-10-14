@@ -12,7 +12,6 @@ int _printf(const char *format, ...);
 int _printf_char(va_list args);
 int _printf_string(va_list args);
 int _printf_percent(void);
-int _printf_reverse(va_list args);
 
 /**
  * struct form_types - struct format types
