@@ -14,7 +14,7 @@ int _printf_string(va_list args)
 
 	my_name_string = va_arg(args, char *);
 	if (my_name_string == NULL)
-		my_name_string = "(nill)";
+		my_name_string = "(null)";
 	while (my_name_string[c])
 	{
 		_putchars(my_name_string[c]);
