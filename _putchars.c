@@ -5,7 +5,7 @@
 /**
  * _putchars - writes the character to standard output
  * @sp: character to be printed
- * Return: 1 on success, -1 not successful
+ * Return: Nothing.
  */
 
 int _putchars(char sp)
@@ -13,34 +13,29 @@ int _putchars(char sp)
 	static char buffer[BUFFER_SIZE];
 	static int buffer_code;
 
-	if (buffer_code < BUFFER_SIZE)
+	if (sp == -1 || buffer_code >= BUFFER_SIZE)
 	{
-		buffer[buffer_code++] = sp;
-		return (1);
-	}
-	else
-	{
-		if (write(1, buffer, BUFFER_SIZE) == -1)
-			return (-1);
+		write(1, &buffer, buffer_code);
 		buffer_code = 0;
-		buffer[buffer_code++] = sp;
-		return (1);
+	}
+	if (sp != -1)
+	{
+		buffer[buffer_code] = sp;
+		buffer_code++;
 	}
 }
 
 /**
  * _printf_buffer - writes remaining characters in the buffer
- * Return: 0 on success, 1 on error
+ * @str: pointer to the string to print
+ * Return: Nothing.
  */
 
-int _printf_buffer(void)
+int _printf_buffer(char *str)
 {
-	if (buffer_code > 0)
-	{
-		if (write(1, buffer, buffer_code) == -1)
-			return (-1);
+	register int buffer_code;
 
-		buffer_code = 0;
-	}
-	return (0);
+	for (buffer_code = 0; str[buffer_code] != '\0'; buffer_code++)
+		_putchar(str[buffer_code]);
+	return (buffer_code);
 }
