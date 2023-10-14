@@ -9,7 +9,7 @@
 int _printf_pointer(va_list args)
 {
 	void *prt = va_arg(args, void*);
-	char *stg = "(nil)";
+	char *stg = "(null)";
 	long int fox;
 	int b;
 	int i;
