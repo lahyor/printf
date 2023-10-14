@@ -8,30 +8,29 @@
 
 int _printf_hex_aux(unsigned long int fox)
 {
-	long int v;
-	long int *few_counts;
-	long int count = 0;
-	unsigned long int len = fox;
+	int count = 0;
+	int few_counts[20];
 
-	while (fox / 16 != 0)
+	if (fox == 0)
 	{
+		_putchars('0');
+		return (1);
+	}
+
+	while (fox != 0 && count < 20)
+	{
+		few_counts[count] = fox % 16;
 		fox /= 16;
 		count++;
 	}
-	count++;
-	few_counts = malloc(count * sizeof(long int));
-
-	for (v = 0; v < count; v++)
+	for (int x = count - 1; x >= 0; x--)
 	{
-		few_counts[v] = len % 16;
-		len /= 16;
+		if (few_counts[x] > 9)
+			_putchars('a' + few_counts[x] - 10);
+		else
+		{
+			_putchars('0' + few_counts[x]);
+		}
 	}
-	for (v = count - 1; v >= 0; v--)
-	{
-		if (few_counts[v] > 9)
-			few_counts[v] = few_counts[v] - 10;
-		_putchars(few_counts[v] + '0');
-	}
-	free(few_counts);
 	return (count);
 }
