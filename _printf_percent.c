@@ -2,10 +2,10 @@
 
 /**
  * _printf_percent - prints a percentage character
- * Return: void
+ * Return: 1.
  */
 int _printf_percent(void)
 {
 	_putchars('%');
-	return (0);
+	return (1);
 }
