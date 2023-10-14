@@ -29,7 +29,7 @@ int _printf_hex_aux(unsigned long int fox)
 	for (v = count - 1; v >= 0; v--)
 	{
 		if (few_counts[v] > 9)
-			few_counts[v] = few_counts[v] + 39;
+			few_counts[v] = few_counts[v] - 10;
 		_putchars(few_counts[v] + '0');
 	}
 	free(few_counts);
