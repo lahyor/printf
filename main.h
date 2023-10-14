@@ -8,12 +8,12 @@
 #include <stdarg.h>
 
 int _putchars(char sp);
+int _printf_buffer(char *str);
 int _printf(const char *format, ...);
 int _printf_char(va_list args);
 int _printf_string(va_list args);
 int _printf_percent(void);
 int _printf_binary(va_list args);
-int _printf_buffer(char *str);
 
 /**
  * struct form_types - struct format types

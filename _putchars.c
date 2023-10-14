@@ -13,15 +13,34 @@ int _putchars(char sp)
 	static char buffer[BUFFER_SIZE];
 	static int buffer_code;
 
-	if (sp == -1 || buffer_code >= BUFFER_SIZE)
+	if (sp != 1)
 	{
-		write(1, &buffer, buffer_code);
-		buffer_code = 0;
+		if (buffer_code < BUFFER_SIZE)
+		{
+			buffer[buffer_code] = sp;
+			(buffer_code++);
+		}
+		else
+		{
+			if (write(1, buffer, buffer_code) == -1)
+			{
+				buffer_code = 0;
+				return (-1);
+			}
+			buffer_code = 0;
+		}
 	}
-	if (sp != -1)
+	else
 	{
-		buffer[buffer_code] = sp;
-		buffer_code++;
+		if (buffer_code > 0)
+		{
+			if (write(1, buffer, buffer_code) == -1)
+			{
+				buffer_code = 0;
+				return (-1);
+			}
+			buffer_code = 0;
+		}
 	}
 	return (1);
 }
