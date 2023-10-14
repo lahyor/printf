@@ -2,11 +2,11 @@
 
 /**
  * _printf_pointer - prints the character p
- * @args: arguments
+ * @val: arguments
  * Return: counter
  */
 
-int _printf_pointer(va_list args)
+int _printf_pointer(va_list val)
 {
 	void *prt;
 	char *stg = "(NULL)";
@@ -14,7 +14,7 @@ int _printf_pointer(va_list args)
 	int b;
 	int i;
 
-	prt = va_arg(args, void*);
+	prt = va_arg(val, void*);
 	if (prt == NULL)
 	{
 		for (i = 0; stg[i] != '\0'; i++)
