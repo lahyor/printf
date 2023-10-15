@@ -3,7 +3,7 @@
 /**
  * _printf_hex_aux - prints hexadecimal number
  * @lens: arguments
- * Return: counter
+ * Return: count
  */
 
 int _printf_hex_aux(unsigned long int lens)
