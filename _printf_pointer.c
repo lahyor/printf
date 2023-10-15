@@ -9,7 +9,7 @@
 int _printf_pointer(va_list val)
 {
 	void *prt;
-	char *stg = "(nil)";
+	char *stg = "(null)";
 	long int fox;
 	int b;
 	int i;
