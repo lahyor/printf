@@ -8,24 +8,24 @@
 
 int _printf_pointer(va_list val)
 {
-	void *t;
-	char *s = "(nil)";
-	long int f;
+	void *pointer;
+	char *code = "(nil)";
+	long int point_index;
 	int b, i;
 
-	t = va_arg(val, void*);
-	if (t == NULL)
+	pointer = va_arg(val, void*);
+	if (pointer == NULL)
 	{
-		for (i = 0; s[i] != '\0'; i++)
+		for (i = 0; code[i] != '\0'; i++)
 		{
-			_putchars(s[i]);
+			_putchars(code[i]);
 		}
 		return (i);
 	}
 
-	f = (unsigned long int)t;
+	point_index = (unsigned long int)pointer;
 	_putchars('0');
 	_putchars('x');
-	b = _printf_hex_aux(f);
+	b = _printf_hex_aux(point_index);
 	return (b + 2);
 }

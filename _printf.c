@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int (*p)(va_list);
-	unsigned int v = 0, front = 0;
+	size_t v = 0, front = 0;
 
 	if (format == NULL)
 		return (-1);
