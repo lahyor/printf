@@ -16,6 +16,8 @@ int _printf_percent(void);
 int _printf_binary(va_list args);
 int _printf_pointer(va_list args);
 int _printf_hex_aux(unsigned long int fox);
+int _printf_int(va_list args);
+int _printf_delib(va_list args);
 
 /**
  * struct form_types - struct format types

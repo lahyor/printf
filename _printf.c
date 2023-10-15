@@ -14,6 +14,8 @@ int (*characters(const char *format))(va_list)
 		{ "s", _printf_string },
 		{ "b", _printf_binary },
 		{ "p", _printf_pointer },
+		{ "i", _printf_int },
+		{ "d", _printf_int },
 		{ NULL, NULL }
 	};
 	while (find_t[x].identifier)
@@ -55,8 +57,6 @@ int _printf(const char *format, ...)
 		{
 			front += p(args);
 			v += 2;
-			continue;
-		}
 		if (!format[v + 1])
 			return (-1);
 		_putchars(format[v]);
@@ -65,6 +65,7 @@ int _printf(const char *format, ...)
 			v += 2;
 		else
 			v++;
+		}
 	}
 	va_end(args);
 	return (front);

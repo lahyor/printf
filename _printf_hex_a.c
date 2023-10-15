@@ -10,6 +10,7 @@ int _printf_hex_aux(unsigned long int fox)
 {
 	int count = 0;
 	int few_counts[20];
+	int x;
 
 	if (fox == 0)
 	{
@@ -23,7 +24,8 @@ int _printf_hex_aux(unsigned long int fox)
 		fox /= 16;
 		count++;
 	}
-	for (int x = count - 1; x >= 0; x--)
+	x = count - 1;
+	for (; x >= 0; x--)
 	{
 		if (few_counts[x] > 9)
 			_putchars('a' + few_counts[x] - 10);
