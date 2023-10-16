@@ -1,12 +1,13 @@
 #include "main.h"
 
 /**
-*_printf_int - main function
-*@args: parameter
-*Return: always 0
-*/
+ * _printf_int - main function
+ * @args: parameter
+ * @length_modifier: modifies the size
+ * Return: always 0
+ */
 
-int _printf_int(va_list args)
+int _printf_int(va_list args, char length_modifier)
 {
 	int rem[33], i = 0, len = 0;
 	int num = va_arg(args, int);
