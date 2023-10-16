@@ -50,7 +50,7 @@ int _printf(const char *format, ...)
 			front++;
 			v++;
 		}
-		if (format[v] == '0')
+		if (format[v] == '\0')
 			return (front);
 		p = characters(&format[v + 1]);
 		if (p != NULL)
