@@ -10,10 +10,9 @@ int _printf_int(va_list args)
 	int e = va_arg(args,  int);
 	int num, final = e % 10, number, expt = 1;
 	int i = 1;
-	
+
 	e = e / 10;
 	num = e;
-	
 	if (final < 0)
 	{
 		_putchars('_');

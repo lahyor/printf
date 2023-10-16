@@ -16,6 +16,10 @@ int (*characters(const char *format))(va_list)
 		{ "p", _printf_pointer },
 		{ "i", _printf_int },
 		{ "d", _printf_int },
+		{ "u",  printf_unsint },
+		{ "o", _print_octal },
+		{ "x", _print_hexa },
+		{ "X", _print_HEXA },
 		{ NULL, NULL }
 	};
 	while (find_t[x].identifier)
