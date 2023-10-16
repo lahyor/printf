@@ -1,11 +1,12 @@
 #include "main.h"
-/**
-*_printf_int - main function
-*@args: the arguments
-*Return: always integers
-*/
+#include <unistd.h>
 
-int _printf_int(va_list args)
+/**
+ * printf_unsint - function that priints integers
+ * @args: set of arguments to be printed
+ * Return: sum of the characters printed at the end
+ */
+int printf_unsint(va_list args)
 {
 int e = va_arg(args,  int);
 int num, final = e % 10, number, expt = 1;
@@ -16,6 +17,7 @@ num = e;
 
 if (final < 0)
 {
+
 _putchars('_');
 num = -num;
 e = -e;
@@ -26,8 +28,8 @@ i++;
 if (num > 0)
 {
 while (num / 10 != 0)
+{
 expt = expt * 10;
-
 num = num / 10;
 }
 num = e;
@@ -35,7 +37,7 @@ while (expt > 0)
 {
 number = num / expt;
 _putchars(number + '0');
-num = num - (number * expt);
+num = num - (number *expt);
 expt = expt / 10;
 i++;
 }

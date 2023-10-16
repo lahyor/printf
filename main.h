@@ -17,6 +17,10 @@ int _printf_int(va_list args);
 int _printf_delib(va_list args);
 int _printf_pointer(va_list val);
 int _printf_hex_aux(unsigned long int lens);
+int printf_unsint(va_list args);
+int _print_octal(va_list val);
+int _print_hexa(va_list val);
+int _print_HEXA(va_list val);
 
 /**
  * struct form_types - struct format types
