@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * _printf_int - main function
  * @args: parameter
@@ -8,34 +7,36 @@
 
 int _printf_int(va_list args)
 {
-	int rem[33], i = 0, len = 0;
-	int num = va_arg(args, int);
-
-	if (num < 0)
+	int e = va_arg(args,  int);
+	int num, final = e % 10, number, expt = 1;
+	int i = 1;
+	
+	e = e / 10;
+	num = e;
+	
+	if (final < 0)
 	{
-		_putchars('-');
+		_putchars('_');
 		num = -num;
+		e = -e;
+		final = -final;
 		i++;
 	}
-	if (num > 9)
+	if (num > 0)
 	{
-		while (num != 0)
-		{
-			rem[len] = num % 10;
-			num = num / 10;
-			len++;
-		}
-		while (len > 0)
-		{
-			_putchars(rem[len - 1] + '0');
-			i++;
-			len--;
-		}
+		while (num / 10 != 0)
+			expt = expt * 10;
+		num = num / 10;
 	}
-	else
+	num = e;
+	while (expt > 0)
 	{
-		_putchars(num % 10 + '0');
-		i = 1;
+		number = num / expt;
+		_putchars(number + '0');
+		num = num - (number * expt);
+		expt = expt / 10;
+		i++;
 	}
+	_putchars(final + '0');
 	return (i);
 }
