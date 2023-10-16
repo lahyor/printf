@@ -3,11 +3,10 @@
 /**
  * characters - finds format for _printf
  * @format: format
- * @length_modifier: pointer to the length modifier
  * Return: Nothing
  */
 
-int (*characters(const char *format, char *length_modifier))(va_list)
+int (*characters(const char *format))(va_list)
 {
 	unsigned int x = 0;
 	p_code find_t[] = {
@@ -53,17 +52,12 @@ int _printf(const char *format, ...)
 		}
 		if (format[v] == '0')
 			return (front);
-		if (format[v + 1] == 'l' || format[v + 1] == 'h')
+		p = characters(&format[v + 1]);
+		if (p != NULL)
 		{
-			char length_modifier = format[v + 1];
-
+			front += p(args);
 			v += 2;
-			p = characters(&format[v], &length_modifier);
-			if (p != NULL)
-			{
-			front += p(args, length_modifier);
 			continue;
-			}
 		}
 		if (!format[v + 1])
 			return (-1);

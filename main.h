@@ -13,11 +13,10 @@ int _printf_char(va_list args);
 int _printf_string(va_list args);
 int _printf_percent(void);
 int _printf_binary(va_list args);
-int _printf_int(va_list args, char length_modifier);
+int _printf_int(va_list args);
 int _printf_delib(va_list args);
 int _printf_pointer(va_list val);
 int _printf_hex_aux(unsigned long int lens);
-int _printf_modifier(va_list val, char length_modifier);
 
 /**
  * struct form_types - struct format types

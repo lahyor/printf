@@ -3,11 +3,10 @@
 /**
  * _printf_int - main function
  * @args: parameter
- * @length_modifier: modifies the size
  * Return: always 0
  */
 
-int _printf_int(va_list args, char length_modifier)
+int _printf_int(va_list args)
 {
 	int rem[33], i = 0, len = 0;
 	int num = va_arg(args, int);
