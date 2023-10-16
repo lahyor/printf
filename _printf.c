@@ -15,7 +15,7 @@ int (*characters(const char *format))(va_list)
 		{ "b", _printf_binary },
 		{ "p", _printf_pointer },
 		{ "i", _printf_int },
-		{ "d", _printf_int },
+		{ "d", _printf_decimal },
 		{ "u",  printf_unsint },
 		{ "o", _print_octal },
 		{ "x", _print_hexa },
