@@ -21,6 +21,8 @@ int _printf_hex_aux(unsigned long int lens)
 	count++;
 	arr = malloc(count * sizeof(long int));
 
+	if (arr == NULL)
+		return (-1);
 	for (s = 0; s < count; s++)
 	{
 		arr[s] = temp % 16;
