@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _printf_int - main function
  * @args: parameter
@@ -7,82 +8,42 @@
 
 int _printf_int(va_list args)
 {
-	int e = va_arg(args,  int);
-	int num, final = e % 10, number, expt = 1;
-	int i = 1;
+	int num, final, i, number, e, expt = 0, ben;
 
-	e = e / 10;
-	num = e;
-	if (final < 0)
+	e = va_arg(args, int);
+	if (e != 0)
 	{
-		_putchars('_');
-		num = -num;
-		e = -e;
-		final = -final;
-		i++;
-	}
-	if (num > 0)
-	{
-		while (num / 10 != 0)
+		if (e < 0)
 		{
-			expt = expt * 10;
-			num = num / 10;
+			_putchars('-');
+			expt++;
 		}
-		num = e;
-		while (expt > 0)
+		ben = e;
+		num = 0;
+		while (ben != 0)
 		{
-			number = num / expt;
-			_putchars(number + '0');
-			num = num - (number * expt);
-			expt = expt / 10;
-			i++;
+			ben /= 10;
+			num++;
 		}
-	}
-	_putchars(final + '0');
-	return (i);
-}
-
-/**
- * _printf_decimal - prints decimal
- * @args: arguments
- * Return: printed decimal
- */
-
-int _printf_decimal(va_list args)
-{
-	int d = va_arg(args, int);
-	int len, rem = d % 10, lose;
-	int v = 1;
-	int ven = 1;
-
-	d = d / 10;
-	len = d;
-
-	if (rem < 0)
-	{
-		_putchars('-');
-		len = -len;
-		d = -d;
-		rem = -rem;
-		v++;
-	}
-	if (len > 0)
-	{
-		while (len / 10 != 0)
+		final = 1;
+		for (i = 1; i <= num - 1; i++)
+			final *= 10;
+		for (i = 1; i <= num; i++)
 		{
-			ven = ven * 10;
-			len = len / 10;
-		}
-		len = d;
-		while (ven > 0)
-		{
-			lose = len / ven;
-			_putchars(lose + '0');
-			len = len - (lose * ven);
-			ven = ven / 10;
-			v++;
+			number = e / final;
+			if (e < 0)
+				_putchars((number * -1) + 48);
+			else
+				_putchars(number + '0');
+			expt++;
+			e -= number * final;
+			final /= 10;
 		}
 	}
-	_putchars(rem + '0');
-	return (v);
+	else
+	{
+		_putchars('0');
+		return (1);
+	}
+	return (expt);
 }
