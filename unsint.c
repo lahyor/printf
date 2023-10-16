@@ -9,7 +9,7 @@
 
 int printf_unsint(va_list args)
 {
-	int e = va_arg(args,  unsigned int);
+	unsigned int e = va_arg(args,  unsigned int);
 	int num, final = e % 10, number, expt = 1;
 	int i = 1;
 
