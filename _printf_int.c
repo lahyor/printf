@@ -34,7 +34,7 @@ int _printf_int(va_list args)
 	}
 	else
 	{
-		_putchars(num % 10 + '0');
+		_putchars(num % 10 + '0' + 1);
 		i = 1;
 	}
 	return (i);
