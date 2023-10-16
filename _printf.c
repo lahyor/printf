@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int (*p)(va_list);
-	unsigned int v = 0, front = 0;
+	size_t v = 0, front = 0;
 
 	if (format == NULL)
 		return (-1);
@@ -57,6 +57,8 @@ int _printf(const char *format, ...)
 		{
 			front += p(args);
 			v += 2;
+			continue;
+		}
 		if (!format[v + 1])
 			return (-1);
 		_putchars(format[v]);
@@ -65,7 +67,6 @@ int _printf(const char *format, ...)
 			v += 2;
 		else
 			v++;
-		}
 	}
 	va_end(args);
 	return (front);

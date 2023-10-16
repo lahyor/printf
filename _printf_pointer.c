@@ -2,30 +2,30 @@
 
 /**
  * _printf_pointer - prints the character p
- * @args: arguments
+ * @val: arguments
  * Return: counter
  */
 
-int _printf_pointer(va_list args)
+int _printf_pointer(va_list val)
 {
-	void *prt = va_arg(args, void*);
-	char *stg = "(nil)";
-	long int fox;
-	int b;
-	int i;
+	void *pointer;
+	char *code = "(nil)";
+	long int point_index;
+	int b, i;
 
-	if (prt == NULL)
+	pointer = va_arg(val, void*);
+	if (pointer == NULL)
 	{
-		for (i = 0; stg[i] != '\0'; i++)
+		for (i = 0; code[i] != '\0'; i++)
 		{
-			_putchars(stg[i]);
+			_putchars(code[i]);
 		}
 		return (i);
 	}
 
-	fox = (unsigned long int)prt;
+	point_index = (unsigned long int)pointer;
 	_putchars('0');
 	_putchars('x');
-	b = _printf_hex_aux(fox);
+	b = _printf_hex_aux(point_index);
 	return (b + 2);
 }

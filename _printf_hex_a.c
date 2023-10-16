@@ -2,37 +2,36 @@
 
 /**
  * _printf_hex_aux - prints hexadecimal number
- * @fox: arguments
- * Return: counter
+ * @lens: arguments
+ * Return: count
  */
 
-int _printf_hex_aux(unsigned long int fox)
+int _printf_hex_aux(unsigned long int lens)
 {
-	int count = 0;
-	int few_counts[20];
-	int x;
+	long int s;
+	long int *arr;
+	long int count = 0;
+	unsigned long int temp = lens;
 
-	if (fox == 0)
+	while (lens / 16 != 0)
 	{
-		_putchars('0');
-		return (1);
-	}
-
-	while (fox != 0 && count < 20)
-	{
-		few_counts[count] = fox % 16;
-		fox /= 16;
+		lens /= 16;
 		count++;
 	}
-	x = count - 1;
-	for (; x >= 0; x--)
+	count++;
+	arr = malloc(count * sizeof(long int));
+
+	for (s = 0; s < count; s++)
 	{
-		if (few_counts[x] > 9)
-			_putchars('a' + few_counts[x] - 10);
-		else
-		{
-			_putchars('0' + few_counts[x]);
-		}
+		arr[s] = temp % 16;
+		temp /= 16;
 	}
+	for (s = count - 1; s >= 0; s--)
+	{
+		if (arr[s] > 9)
+			arr[s] = arr[s] + 39;
+		_putchars(arr[s] + '0');
+	}
+	free(arr);
 	return (count);
 }
