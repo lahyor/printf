@@ -9,23 +9,30 @@
 int _printf_rot_13(va_list val)
 {
 	int k, r, love = 0;
+	int i = 0;
 	char *s;
-	char data1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz";
-	char datarot[] = "NOPQRSTUVWXYZABCDEFGHIJKLM nopqrstuvwxyzabcdefghijklm";
+	char data1[] = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
+	char datarot[] = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
 
-	s = va_arg(val, char *);
+	s = va_arg(val, char*);
 	if (s == NULL)
 		s = "(null)";
 	for (k = 0; s[k] != '\0'; k++)
 	{
-		for (r = 0; data1[r] != '\0'; r++)
+		i = 0;
+		for (r = 0; data1[r] && !i; r++)
 		{
 			if (s[k] == data1[r])
 			{
 				_putchars(datarot[r]);
 				love++;
-				break;
+				i = 1;
 			}
+		}
+		if (!i)
+		{
+			_putchars(s[k]);
+			love++;
 		}
 	}
 	return (love);
