@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * printrot_13 - main function
+ * _printf_rot_13 - main function
  * @val: String pointer
  * Return: return *s
  */
 
-int printrot_13(va_list val)
+int _printf_rot_13(va_list val)
 {
 	int k, r, love = 0;
 	char *s;

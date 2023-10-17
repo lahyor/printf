@@ -21,7 +21,7 @@ int (*characters(const char *format))(va_list)
 		{ "x", _print_hexa },
 		{ "X", _print_HEXA },
 		{ "r", printrev },
-		{ "R", printrot_13 },
+		{ "R", _printf_rot_13 },
 		{ NULL, NULL }
 	};
 	while (find_t[x].identifier)
