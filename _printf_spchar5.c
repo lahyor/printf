@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * print_spchar5 - printing string
- * @val:this holds the value of the hexas
- * Return:return len at the end
+ * print_spchar_5 - printing string
+ * @val: this holds the value of the hexas
+ * Return: return len at the end
  */
 
-int print_spchar5(va_list val)
+int print_spchar_5(va_list val)
 {
 	char *e;
 	int k, len = 0;
@@ -28,7 +28,7 @@ int print_spchar5(va_list val)
 				_putchars('0');
 				len++;
 			}
-			len = len + _printf_HEXA2(quant);
+			len = len + _printf_HEXA_2(quant);
 		}
 		else
 		{

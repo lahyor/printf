@@ -22,8 +22,8 @@ int _print_hexa(va_list val);
 int _print_HEXA(va_list val);
 int _printf_rev(va_list val);
 int _printf_rot_13(va_list val);
-int _printf_HEXA2(unsigned int num);
-int print_spchar5(va_list val);
+int _printf_HEXA_2(unsigned int num);
+int print_spchar_5(va_list val);
 
 /**
  * struct form_types - struct format types
