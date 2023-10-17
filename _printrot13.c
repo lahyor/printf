@@ -18,21 +18,14 @@ int _printf_rot_13(va_list val)
 		s = "(null)";
 	for (k = 0; s[k] != '\0'; k++)
 	{
-		if (s[k] >= 'A' && s[k] <= 'z')
+		for (r = 0; data1[r] != '\0'; r++)
 		{
-			for (r = 0; data1[r] != '\0'; r++)
+			if (s[k] == data1[r])
 			{
-				if (s[k] == data1[r])
-				{
-					_putchars(datarot[r]);
-					love++;
-					break;
-				}
+				_putchars(datarot[r]);
+				love++;
+				break;
 			}
-		}
-		else
-		{
-			_putchars(s[k]);
 		}
 	}
 	return (love);
