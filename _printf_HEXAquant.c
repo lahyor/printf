@@ -1,7 +1,7 @@
 #include "main.h"
 /**
- * _print_HEXA - converting to hexadecimal
- *@val: the varaibles
+ * _printf_HEXA2 - converting to hexadecimal
+ *@num: the varaibles
  *Return: count after conversion
  */
 int _printf_HEXA2(unsigned int num)
