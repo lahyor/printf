@@ -1,12 +1,11 @@
 #include "main.h"
 
 /**
- * printrev - function that prints in reverse form
+ * _printf_rev - function that prints in reverse form
  * @val: this keeps track of our loop
- * e: the counter holding the value of the loop
  * Return: results in a reversed form
  */
-int printrev(va_list val)
+int _printf_rev(va_list val)
 {
 	char *e = va_arg(val, char*);
 	int i;

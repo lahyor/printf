@@ -20,7 +20,7 @@ int (*characters(const char *format))(va_list)
 		{ "o", _print_octal },
 		{ "x", _print_hexa },
 		{ "X", _print_HEXA },
-		{ "r", printrev },
+		{ "r", _printf_rev },
 		{ "R", _printf_rot_13 },
 		{ NULL, NULL }
 	};
