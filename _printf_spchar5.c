@@ -15,7 +15,7 @@ int print_spchar_5(va_list val)
 	e = va_arg(val, char *);
 	if (e == NULL)
 		e = "(null)";
-	for (k = 0, e[k] != '\0' k++)
+	for (k = 0; e[k] != '\0'; k++)
 	{
 		if (e[k] < 32 || e[k] >= 127)
 		{
