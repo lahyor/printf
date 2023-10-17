@@ -2,11 +2,11 @@
 
 /**
  * _printf_HEXA_2 - converting to hexadecimal
- * @num: the varaibles
+ * @number: the varaibles
  * Return: count after conversion
  */
 
-int _printf_HEXA_2(unsigned int num)
+int _printf_HEXA_2(unsigned int number)
 {
 	int e;
 	int *space;
