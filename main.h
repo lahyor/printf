@@ -21,6 +21,7 @@ int printf_unsint(va_list args);
 int _print_octal(va_list val);
 int _print_hexa(va_list val);
 int _print_HEXA(va_list val);
+int printrev(va_list val);
 
 /**
  * struct form_types - struct format types
