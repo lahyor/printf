@@ -18,14 +18,21 @@ int printrot_13(va_list val)
 		s = "(null)";
 	for (k = 0; s[k] != '\0'; k++)
 	{
-		for (r = 0; r < data1[r]; r++)
+		if (s[k] >= 'A' && s[k] <= 'z')
 		{
-			if (s[k] == data1[r])
+			for (r = 0; data1[r] != '\0'; r++)
 			{
-				_putchars(datarot[r]);
-				love++;
-				break;
+				if (s[k] == data1[r])
+				{
+					_putchars(datarot[r]);
+					love++;
+					break;
+				}
 			}
+		}
+		else
+		{
+			_putchars(s[k]);
 		}
 	}
 	return (love);
